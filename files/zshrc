@@ -1,3 +1,16 @@
+# Handle starting terminal with command execution
+if [ ! -z "$INIT_CMD" ]; then
+    OLD_IFS=$IFS
+    setopt shwordsplit
+    IFS=';'
+    for cmd in $INIT_CMD; do
+        print -s "$cmd"  # add to history
+        eval $cmd
+    done
+    unset INIT_CMD
+    IFS=$OLD_IFS
+fi
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
