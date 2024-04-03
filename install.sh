@@ -6,5 +6,5 @@ if [ ! "$(which git)" ]; then
 fi
 
 mkdir -p ~/.misc
-git clone -q https://github.com/robertalexa/dotfiles.git ~/.misc/dotfiles
+git clone -q https://github.com/LaurFl/dotfiles.git ~/.misc/dotfiles
 ~/.misc/dotfiles/main.sh -ipv
